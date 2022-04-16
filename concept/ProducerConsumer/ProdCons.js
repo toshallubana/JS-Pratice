@@ -13,18 +13,18 @@ function Consumer() {
   this.consumeNext = async function () {
     this.isConsuming = true;
     if (data.length > 0) {
-      //consume one datum
+      //consume one dataVal
       console.log(await this.consume(data.shift()));
 
-      //consume next datum
+      //consume next dataVal
       this.consumeNext();
     } else {
       this.isConsuming = false;
     }
   };
 
-  this.consume = async function (datum) {
-    return datum * datum;
+  this.consume = async function (dataVal) {
+    return dataVal * dataVal;
   };
 }
 

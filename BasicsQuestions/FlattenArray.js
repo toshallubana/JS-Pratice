@@ -15,3 +15,20 @@ function FlattenArray(arr, depth) {
   return result;
 }
 console.log(FlattenArray(arr, 2));
+
+const arr = [[1, 2], [3, 4], [5, 6, 7], [8, 9], [[10]]];
+let flat = [];
+function flatten(arr){
+  for(let i = 0; i < arr.length; i++){
+    if(Array.isArray(arr[i])){
+      console.log(arr[i])
+      flatten(arr[i])
+    }else{
+      console.log(arr[i])
+      flat.push(arr[i])
+    }
+  }
+  return flat;
+}
+console.log(flatten(arr))
+

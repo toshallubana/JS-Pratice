@@ -5,6 +5,7 @@ function caching(fn, context) {
     if (!result[agrsCache]) {
       result[agrsCache] = fn.call(context || this, ...args);
     }
+    console.log(result)
     return result[agrsCache];
   };
 }
@@ -17,6 +18,6 @@ const abc = (num1, num2) => {
 const myFunc = caching(abc);
 console.log(myFunc());
 
-console.time("first call");
+// console.time("first call");
 console.log(abc(123, 123));
-console.timeEnd("lastTime");
+// console.lastTime("lastTime");
