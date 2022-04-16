@@ -181,21 +181,86 @@
 
 
 // Flatten Array
-const arr = [[1, 2], [3, 4], [5, 6, 7], [8, 9], [[10]]];
-let flat = [];
-function flatten(arr){
-  for(let i = 0; i < arr.length; i++){
-    if(Array.isArray(arr[i])){
-      console.log(arr[i])
-      flatten(arr[i])
-    }else{
-      console.log(arr[i])
-      flat.push(arr[i])
+// const arr = [[1, 2], [3, 4], [5, 6, 7], [8, 9], [[10]]];
+// let flat = [];
+// function flatten(arr){
+//   for(let i = 0; i < arr.length; i++){
+//     if(Array.isArray(arr[i])){
+//       console.log(arr[i])
+//       flatten(arr[i])
+//     }else{
+//       console.log(arr[i])
+//       flat.push(arr[i])
+//     }
+//   }
+//   return flat;
+// }
+// console.log(flatten(arr));
+
+/////////////////////////////////////////////////////
+// Object flatten
+const obj = {
+    name:"Toshal",
+    val:{
+      address:"chandimandir",
+      lastName:"Lubana",
+      xyz:{
+        yzx: "dasdsd"
+      }
     }
-  }
-  return flat;
 }
-console.log(flatten(arr))
+
+const flattenObject = (obj) => {
+  const flattened = {}
+
+  Object.keys(obj).forEach((key) => {
+    const value = obj[key]
+
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      Object.assign(flattened, flattenObject(value))
+    } else {
+      flattened[key] = value
+    }
+  })
+
+  return flattened
+}
+
+// {
+//   name: 'Toshal',
+//   address: 'chandimandir',
+//   lastName: 'Lubana',
+//   yzx: 'dasdsd'
+// }
+
+const flatten = (obj, prefix = '', res = {}) => 
+  Object.entries(obj).reduce((r, [key, val]) => {
+    const k = `${prefix}${key}`
+    console.log(r)
+    if(typeof val === 'object'){ 
+      flatten(val, `${k}.`, r)
+    } else {
+      res[k] = val
+    }
+    return r
+  }, res)
+ 
+flatten(obj)
+
+// {
+//   name: 'Toshal',
+//   'val.address': 'chandimandir',
+//   'val.lastName': 'Lubana',
+//   'val.xyz.yzx': 'dasdsd'
+// }
+
+// console.log(flattenObject(obj));
+
+///////////////////////////////////
+
+
+
+
 
 
 
