@@ -15,7 +15,7 @@ function promiseAll(promises) {
       p.then(() => {
         result.push(p);
         if (index == promises.length - 1) {
-          resolve(result);
+          res(result);
         }
       }).catch((err) => rej(err));
     });
