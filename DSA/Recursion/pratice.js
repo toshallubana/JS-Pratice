@@ -35,12 +35,47 @@
 
 ////////////////////////////////////////////////////
 
-function fibMemo(n, memo = { 0: 0, 1: 1 }) {
-  if (n in memo) {
-    return memo[n];
-  }
-  const result = fibMemo(n - 1, memo) + fibMemo(n - 2, memo);
-  memo[n] = result;
-  return result;
+// function fibMemo(n, memo = { 0: 0, 1: 1 }) {
+//   if (n in memo) {
+//     return memo[n];
+//   }
+//   const result = fibMemo(n - 1, memo) + fibMemo(n - 2, memo);
+//   memo[n] = result;
+//   return result;
+// }
+// console.log(fibMemo(1));
+
+
+//
+// abc();
+function abc(){
+  console.log('hello');
 }
-console.log(fibMemo(1));
+
+const hello = function(){
+  console.log('hello');
+}
+
+const arrow = () => {
+
+}
+
+(function(){
+  var a = b = 10;
+  console.log(a)
+})();
+
+const obj = {
+  name: "Toshal",
+  lastName: "Lubana",
+  printName: () =>{
+    function abc() {
+      console.log(`${this.name} ${this.lastName}`);
+    }
+    abc();
+  }
+}
+// obj.printName();
+
+
+
