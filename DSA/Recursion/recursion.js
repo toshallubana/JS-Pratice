@@ -388,4 +388,37 @@
 // }
 // permutation("abc", "");
 
-//
+////////////////////////////////////////////////////
+
+// using helper function
+function collectOddValues(arr){
+    let result = [];
+    function helper(inputValue){
+        if(inputValue.length == 0){
+            return;
+        }
+        if(inputValue[0] % 2 != 0){
+            result.push(inputValue[0]);
+        }
+        helper(inputValue.slice(1));
+    }
+    helper(arr)
+    return result;
+}
+console.log(collectOddValues([1,2,3,4,5,6,7,8,9]));
+
+// using Pure recursion
+
+function collectOddValuesRecursion(arr){
+    let result = [];
+    if(arr.length == 0){
+        return result;
+    }
+
+    if(arr[0] % 2 !== 0){
+        result.push(arr[0]);
+    }
+    result = result.concat(collectOddValuesRecursion(arr.slice(1)));
+    return result;
+}
+console.log(collectOddValuesRecursion([1,2,3,4,5,6,7,8,9]));
