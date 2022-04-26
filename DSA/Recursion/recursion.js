@@ -391,34 +391,224 @@
 ////////////////////////////////////////////////////
 
 // using helper function
-function collectOddValues(arr){
-    let result = [];
-    function helper(inputValue){
-        if(inputValue.length == 0){
-            return;
-        }
-        if(inputValue[0] % 2 != 0){
-            result.push(inputValue[0]);
-        }
-        helper(inputValue.slice(1));
-    }
-    helper(arr)
-    return result;
-}
-console.log(collectOddValues([1,2,3,4,5,6,7,8,9]));
+// function collectOddValues(arr){
+//     let result = [];
+//     function helper(inputValue){
+//         if(inputValue.length == 0){
+//             return;
+//         }
+//         if(inputValue[0] % 2 != 0){
+//             result.push(inputValue[0]);
+//         }
+//         helper(inputValue.slice(1));
+//     }
+//     helper(arr)
+//     return result;
+// }
+// console.log(collectOddValues([1,2,3,4,5,6,7,8,9]));
 
 // using Pure recursion
 
-function collectOddValuesRecursion(arr){
-    let result = [];
-    if(arr.length == 0){
-        return result;
-    }
+// function collectOddValuesRecursion(arr){
+//     let result = [];
+//     if(arr.length == 0){
+//         return result;
+//     }
 
-    if(arr[0] % 2 !== 0){
-        result.push(arr[0]);
-    }
-    result = result.concat(collectOddValuesRecursion(arr.slice(1)));
-    return result;
-}
-console.log(collectOddValuesRecursion([1,2,3,4,5,6,7,8,9]));
+//     if(arr[0] % 2 !== 0){
+//         result.push(arr[0]);
+//     }
+//     result = result.concat(collectOddValuesRecursion(arr.slice(1)));
+//     return result;
+// }
+// console.log(collectOddValuesRecursion([1,2,3,4,5,6,7,8,9]));
+
+///////////////////////////////////////////////////////////////////////
+
+// power
+// function power(num,pow){
+//     if(pow == 0) return 1;
+//     return num * power(num,pow - 1)
+// }
+// console.log(power(2,4));
+
+///////////////////////////////////////////////////////////////////////
+
+// Factorial
+
+// function factorial(num){
+//     if(num == 1) return 1;
+//     return num * factorial(num - 1);
+// }
+// console.log(factorial(7));
+
+///////////////////////////////////////////////////////////////////////
+
+// Product of array
+// let result = 0;
+// function Product(arr){
+//     if(arr.length == 0) return 1;
+//     result = arr[0] * Product(arr.slice(1));
+//     return result; 
+// }
+// console.log(Product([1,2,3,4]));
+
+///////////////////////////////////////////////////////////////////////
+
+// Recursive range
+
+// function Recursive(num){
+//     if(num == 0) return 0;
+//     return num + Recursive(num - 1);
+// }
+// console.log(Recursive(10));
+
+///////////////////////////////////////////////////////////////////////
+
+// Fib
+
+// function Fib(num){
+//     if(num == 1 || num == 2) return 1
+//     return Fib(num - 1) + Fib(num - 2);
+// }
+// console.log(Fib(35));
+
+///////////////////////////////////////////////////////////////////////
+
+// reverse
+// function reverse(string){
+//     if(string.length == 0) return string;
+//     return reverse(string.slice(1)) + string[0];
+// }
+// console.log(reverse('awesome'));
+
+///////////////////////////////////////////////////////////////////////
+
+// isPalindrome
+// function isPalindrome(string){
+//     if(string.length == 0) return true;
+//     if(string[0] == string[1]) return string[0] == string[1];
+//     if(string[0] == string.slice(-1)) return isPalindrome(string.slice(1,-1));
+//     return false;
+// }
+// console.log(isPalindrome('amanaplanacanalpanama'));
+
+/////////////////////////////////////////////////////////////////////
+
+// Flatten
+// let result = [];
+// function flatten(arr){
+//     for(let i = 0; i < arr.length; i++){
+//         if(Array.isArray(arr[i])){
+//             result = flatten(arr[i]);
+//         }else{
+//             result.push(arr[i]);
+//         }
+//     }
+//     return result;
+// }
+// console.log(flatten([1,2,3,[4,5],6,7,8]));
+
+/////////////////////////////////////////////////////////////////////
+
+// captilize words
+// function capitalizeFirst(arr){
+//     if(arr.length == 1) return [arr[0].toUpperCase()];
+//     let res = capitalizeFirst(arr.slice(0,-1));
+//     res.push(arr.slice(arr.length - 1)[0].toUpperCase());
+//     return res;
+// }
+// console.log(capitalizeFirst(['car','tar','hello']));
+
+/////////////////////////////////////////////////////////////////////
+// nestedEvenSum
+
+// const obj1 = {
+//     a: 2,
+//     b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+//     c: {c: {c: 2}, cc: 'ball', ccc: 5},
+//     d: 1,
+//     e: {e: {e: 2}, ee: 'car'}
+//   };
+
+
+// let sum = 0;
+// function nestedEvenSum(obj){
+
+//     for(let key in obj){
+//         if(typeof obj[key] == 'object' && typeof obj[key] != null){
+//             nestedEvenSum(obj[key]);
+//         }else{
+//             if(typeof obj[key] == 'number'){
+//                 sum += obj[key];
+//             }
+//         }
+//     }
+//     return sum;
+// }
+// console.log(nestedEvenSum(obj1));
+
+/////////////////////////////////////////////////////////////////////
+// stringifyNumbers
+
+// let obj = {
+//     num: 1,
+//     test: [],
+//     data: {
+//         val: 4,
+//         info: {
+//             isRight: true,
+//             random: 66
+//         }
+//     }
+// }
+
+// function stringifyNumbers(object){
+//     const newobj = {};
+//     for(let key in object){
+//         if(typeof object[key] == 'object' && typeof object[key] != null && !Array.isArray(obj[key])){
+//             newobj[key] = stringifyNumbers(object[key]);
+//         }else if(typeof object[key] == 'number'){
+//             newobj[key] = object[key].toString();
+//         }else{
+//             newobj[key] = object[key];
+//         }
+//     }
+//     return newobj;
+// }
+// console.log(stringifyNumbers(obj));
+
+/////////////////////////////////////////////////////////////////////
+// collectStrings
+
+// const obj = {
+//     stuff: "foo",
+//     data: {
+//         val: {
+//             thing: {
+//                 info: "bar",
+//                 moreInfo: {
+//                     evenMoreInfo: {
+//                         weMadeIt: "baz"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// let collectArray = [];
+// function collectStrings(obj){
+//     for(let key in obj){
+//         if(typeof obj[key] == 'object' && typeof obj[key] != null){
+//             collectStrings(obj[key]);
+//         }else{
+//             if(typeof obj[key] == 'string'){
+//                 collectArray.push(obj[key]);
+//             }
+//         }
+//     }
+//     return collectArray;
+// }
+// console.log(collectStrings(obj));
+
+
