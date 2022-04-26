@@ -62,3 +62,36 @@
 
 // }
 // console.log(anagram('anagram','nagaram'));
+
+// sameFrequency
+
+// function sameFrequency(a,b){
+//     if(a.length != b.length) return false;
+//     let freq1 = {};
+//     let freq2 = {};
+//     for(let i = 0; i < a.length; i++){
+//         freq1[a[i]] = (freq1[a[i]] || 0) + 1;
+//     }
+//     for(let i = 0; i < b.length; i++){
+//         freq2[b[i]] = (freq2[b[i]] || 0) + 1;
+//     }
+//     for(let key in freq1){
+//         if(freq1[key] != freq2[key]) return false;
+//     }
+//     return true;
+// }
+// console.log(sameFrequency('182','281'));
+
+// Duplicate
+
+function isDuplicate(...args){
+    let collection = {};
+    for(let i = 0; i < args.length; i++){
+        collection[args[i]] = (collection[args[i]] || 0) + 1;
+    }
+    for(let key in collection){
+        if(collection[key] > 1) return false;
+    }
+    return true;
+}
+console.log(isDuplicate('a','b','c','a'));
