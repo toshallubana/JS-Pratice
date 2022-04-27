@@ -39,7 +39,6 @@ function customPromise(executor){
             catchers.push(failureCallback)
         }
     }
-
     executor(resolve,reject);
 }
 
@@ -53,5 +52,7 @@ const dowork = (res,rej) => {
 }
 
 let greetMsg = new customPromise(dowork);
-greetMsg.then(data => console.log(data));
+greetMsg.then(data => data).then((res) => console.log(res));
 greetMsg.catch(err => console.log(err));
+
+// Output:- Promise rejected
