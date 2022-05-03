@@ -1,4 +1,5 @@
 // Instead of sorting large value sort the small values first
+// 
 
 function selectionSort(arr){
     for(let i = 0; i < arr.length; i++){
@@ -8,7 +9,10 @@ function selectionSort(arr){
                 lower = j;
             }
         }
-        [arr[i],arr[lower]] = [arr[lower],arr[i]];
+        if(i !== lowest){ // this will check wheather i is swap or not
+            [arr[i],arr[lower]] = [arr[lower],arr[i]];
+        }
+        
     }
     return arr;
 }

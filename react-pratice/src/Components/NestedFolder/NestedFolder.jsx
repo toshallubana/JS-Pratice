@@ -9,11 +9,11 @@ const NestedFolder = ({explorer}) => {
     if(explorer.isFolder){
         return (
             <div>
-                <div onClick={() => setExpand(true)}>
+                <div onClick={() => setExpand(!expand)}>
                     {explorer.name}
                     <br/>
                 </div>
-                <div style={{display: expand ? "block" : "none"}}>
+                <div style={{display: expand ? "block" : "none", padding:"15px"}}>
                     {explorer.directory.map((val,i) => {
                         return <NestedFolder explorer={val} />
                     })}

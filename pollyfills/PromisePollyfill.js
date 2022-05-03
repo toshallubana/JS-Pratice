@@ -97,7 +97,7 @@ function MyPromise(executor){
 
     this.catch = function(catchHandler){
         onReject = catchHandler;
-        if(!isCalled && isFulfilled){
+        if(!isCalled && isRejected){
             onReject(error);
             isCalled = true;
         }
@@ -108,11 +108,14 @@ function MyPromise(executor){
 
 const dowork = (res,rej) => {
     if(1==1) {
-        setTimeout(() => {res("Promise consume")},1000);
+        setTimeout(() => {res(2)},1000);
     }
     else { 
-        setTimeout(() => {rej("Promise rejected")},1000);
+        setTimeout(() => {rej(-1)},1000);
     }
 }
 let greetMsg = new MyPromise(dowork);
-greetMsg.then(data => data).then(res => res).then(val => console.log(val)).catch(err => console.log(err));
+greetMsg.then(data => data)
+.then(res => 2 * 2)
+.then(val => console.log(val))
+.catch(err => console.log(err));
