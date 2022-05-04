@@ -659,20 +659,25 @@
 // console.log(str);
 
 
-let str = "";
-for(let i = 1; i <=4; i++){
-    let k = 65;
-    for(let j = 1; j <=7; j++){
-        if(j <= 5 - i || j >= 3 + i){
-            str = str.concat(String.fromCharCode(k));
-        }else{
-            str = str.concat(" ");
-        }
-        k++
-    }
-    str = str.concat("\n");
-}
-console.log(str);
+// ABCDEFG
+// ABC EFG
+// AB   FG
+// A     G
+
+// let str = "";
+// for(let i = 1; i <=4; i++){
+//     let k = 65;
+//     for(let j = 1; j <=7; j++){
+//         if(j <= 5 - i || j >= 3 + i){
+//             str = str.concat(String.fromCharCode(k));
+//         }else{
+//             str = str.concat(" ");
+//         }
+//         k++
+//     }
+//     str = str.concat("\n");
+// }
+// console.log(str);
 
 
 
