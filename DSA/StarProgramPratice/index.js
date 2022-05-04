@@ -487,6 +487,194 @@
 // }
 // console.log(str);
 
+// * * * * * * *
+// *           *
+// *           *
+// *           *
+// *           *
+// *           *
+// * * * * * * *
+
+// let str = "";
+// for(let i = 1; i <=7; i++){
+//     for(let j = 1; j <=7; j++){
+//         if((j == 1 || j == 7 || i == 1 || i == 7) || (i >= 3 && i<=5 && j>=3 && j<=5) && (i==3 || i==5 || j == 3 || j == 5)){
+//             str = str.concat("*");
+//         }else{
+//             str = str.concat(" ");
+//         }
+//     }
+//     str = str.concat("\n");
+// }
+// console.log(str);
+
+// A
+// B A
+// C B A
+// D C B A
+
+
+// let str = "";
+// let k = 64;
+// for(let i = 1; i <=4; i++){
+//     k = k + i;
+//     for(let j = 1; j <=4; j++){
+//         if(j<=i){
+//             str = str.concat(String.fromCharCode(k));
+//             k--;
+//         }else{
+//             str = str.concat(" ");
+//         }
+//     }
+//     str = str.concat("\n");
+// }
+// console.log(str);
+
+//    1   
+//   212  
+//  32123 
+// 4321234
+
+
+// let str = "";
+// for(let i = 1; i <=4; i++){
+//     let k = i;
+//     for(let j = 1; j <=7; j++){
+//         if(j>=5-i && j<=3+i){
+//             str = str.concat(k);
+//             j < 4 ? k-- : k++;
+//         }else{
+//             str = str.concat(" ");
+//         }
+//     }
+//     str = str.concat("\n");
+// }
+// console.log(str);
+
+// 1        
+// 2*3      
+// 4*5*6    
+// 7*8*9*10  
+// 11*12*13*14*15
+
+// let str = "";
+// let k = 0;
+// let count = 1;
+// for(let i = 1; i <=5; i++){
+//     for(let j = 1; j <=9; j++){
+//         if(j <= i + k){
+//             if(j%2 != 0) {
+//                 str = str.concat(count);
+//                 count++;
+//             } else{
+//                 str = str.concat("*");
+//             }
+//         }else{
+//             str = str.concat(" ");
+//         }
+//     }
+//     k++
+//     str = str.concat("\n");
+// }
+// console.log(str);
+
+//     A
+//    CB
+//   FED
+//  JIHG
+// ONMLK
+
+// let str = "";
+// let k = 64;
+// let count;
+// for(let i = 1; i <=5; i++){
+//     k = k + 2 * (i-1) + 1;
+//     if(i == 1) k = 65;
+//     for(let j = 1; j <=5; j++){
+//         if(j >= 6 - i){
+//             str = str.concat(String.fromCharCode(k--));
+//         }else{
+//             str = str.concat(" ");
+//         }
+//     }
+//     str = str.concat("\n");
+// }
+// console.log(str);
+
+
+//    1   
+//   A B  
+//  1 2 3 
+// A B C D
+
+
+// let str = "";
+// for(let i = 1; i <=4; i++){
+//     let k = 65;
+//     let count = 1;
+//     for(let j = 1; j <=7; j++){
+//         if(j >= 5 - i && j <= 3 + i){
+//             let val = "";
+//             if(i % 2 == 0){
+//                 if(j % 2 != 0){
+//                     val = String.fromCharCode(k);
+//                     k++;
+//                 }else{
+//                     val = " "
+//                 }
+//             }else{
+//                 if(j % 2 == 0){
+//                     val = count;
+//                     count++;
+//                 }else{
+//                     val = " "
+//                 }
+//             }
+//             str = str.concat(val);
+//         }else{
+//             str = str.concat(" ");
+//         }
+//     }
+//     str = str.concat("\n");
+// }
+// console.log(str);
+
+// *   *
+//  * * 
+//   *  
+//  * * 
+// *   *
+
+// let str = "";
+// for(let i = 1; i <=5; i++){
+//     for(let j = 1; j <=5; j++){
+//         if(j == i || j == 5 + 1 - i){
+//             str = str.concat("*");
+//         }else{
+//             str = str.concat(" ");
+//         }
+//     }
+//     str = str.concat("\n");
+// }
+// console.log(str);
+
+
+let str = "";
+for(let i = 1; i <=4; i++){
+    let k = 65;
+    for(let j = 1; j <=7; j++){
+        if(j <= 5 - i || j >= 3 + i){
+            str = str.concat(String.fromCharCode(k));
+        }else{
+            str = str.concat(" ");
+        }
+        k++
+    }
+    str = str.concat("\n");
+}
+console.log(str);
+
+
 
 
 
