@@ -355,6 +355,16 @@ class singlyLinkedList{
     return this;
 
   }
+  remove(val,index){
+    if(index < 0 || index > this.length) return false;
+    if(index == this.length) return this.pop();
+    if(index == 0) return this.shift();
+    let prev = this.get(index - 1);
+    let removed = prev.next;
+    prev.next = removed.next;
+    this.length--;
+    return removed; 
+  }
 }
 
 const list = new singlyLinkedList();
