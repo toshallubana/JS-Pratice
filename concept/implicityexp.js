@@ -1,21 +1,24 @@
-let obj = {
-  name: "Toshal",
-  displayName: function () {
-    console.log(this.name);
-  },
-};
+// let obj = {
+//   name: "Toshal",
+//   displayName: function () {
+//       console.log(this.name);
+//   },
+// };
 
-let obj2 = {
-  name: "Lubana",
-};
+// let obj2 = {
+//   name: "Lubana",
+// };
 
-obj.displayName.call(obj2);
+// obj.displayName.call(obj2);
 
 // we using a arrow function
 let obj3 = {
   name: "Toshal",
-  displayName: () => {
-    console.log(this.name);
+  displayName: function () {
+    const disp = () => {
+      console.log(this.name);
+    }
+    disp();  
   },
 };
 
