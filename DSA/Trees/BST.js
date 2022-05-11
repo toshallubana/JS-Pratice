@@ -1,3 +1,6 @@
+// insertion O(logn)
+// searching O(logn)
+
 class Node {
     constructor(value){
         this.value = value
@@ -48,6 +51,30 @@ class BinarySearchTree {
         }
         return false;
     }
+    // BFS Breath first search
+
+    //    10
+    //  6    15
+    // 3 8    20 
+    // [10,6,15,3,8,20]
+    BFS(){
+        let data = [];
+        let queue = [];
+            node = this.root;
+        queue.push(node);
+        while(queue.length){
+            node = queue.shift()
+            data.push(node);
+            if(node.left) queue.push(node.left);
+            if(node.right) queue.push(node.right);
+        }
+        return data;
+    }
 }
 const BST = new BinarySearchTree();
 BST.insert(10);
+BST.insert(6);
+BST.insert(15);
+BST.insert(3);
+BST.insert(8);
+BST.insert(20);
