@@ -1,0 +1,81 @@
+// Input:
+// {([])}
+// Output: 
+// true
+// Explanation: 
+// { ( [ ] ) }. Same colored brackets can form 
+// balaced pairs, with 0 number of 
+// unbalanced bracket.
+
+// function cmp(b, c){
+//     if(b=='{' && c=='}')
+//         return true;
+//     else if(b=='[' && c==']')
+//         return true;
+//     else if(b=='(' && c==')')
+//         return true;
+//     return false;
+// }
+
+// function balance(x) {
+//     const arr = [];
+//     let top = -1;
+//     for(let i = 0; i < x.length; i++) {
+//         if(x[i] == '[' || x[i] == '{' || x[i] == '('){
+//             arr.push(x[i]);
+//             top++;
+//         }else if(x[i] == ']' || x[i] == '}' || x[i] == ')'){
+//             if(top == -1 || !cmp(arr[top], x[i])) return false;
+//             else {
+//                 arr.pop();
+//                 top--;
+//             }
+//         }
+//     }
+//     if(top == -1) return true;
+//     else return false;
+// }
+// console.log(balance('{([])}'));
+
+// IPv4 address = 222.111.111.111
+
+// const validateIp = (ip) => {
+//     const arrIp = ip.split('.');
+//     if(arrIp.length > 4 || arrIp.length < 4) return 0;
+//     for(let i = 0; i < ip.length; i++){
+//         if((ip[i].length >=2 && ip[i].length <=2) && ip[i]>255){
+//             return 0;
+//         }
+//     }
+//     return 1;
+// }
+// console.log(validateIp('5555..555'));
+
+// Input:
+// s = Geeks
+// Output: skeeG
+
+// const reverse = (string) => {
+//     let str = '';
+//     for(let i = string.length - 1; i >= 0; i--) {
+//         str+= '' + string[i];
+//     }
+//     return str;
+// }
+// console.log(reverse('Geeks'));
+
+// palindrome
+
+const palindrome = (string) => {
+    let i = 0;
+    let j = string.length - 1;
+    while(i < j) {
+        if(string[i] != string[j]) {
+            return 0;
+        }
+        i++;
+        j--;
+    }
+    return 1;
+}
+console.log(palindrome('abcba'))
