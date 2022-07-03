@@ -66,16 +66,33 @@
 
 // palindrome
 
-const palindrome = (string) => {
-    let i = 0;
-    let j = string.length - 1;
-    while(i < j) {
-        if(string[i] != string[j]) {
-            return 0;
+// const palindrome = (string) => {
+//     let i = 0;
+//     let j = string.length - 1;
+//     while(i < j) {
+//         if(string[i] != string[j]) {
+//             return 0;
+//         }
+//         i++;
+//         j--;
+//     }
+//     return 1;
+// }
+// console.log(palindrome('abcba'))
+
+// Input:
+// s = GeeksForGeeks, x = Fr
+// Output: -1
+// Explanation: Fr is not present in the
+// string GeeksForGeeks as substring.
+
+const findNumber = (str,x) => {
+    for(let i = 0; i < x.length; i++) {
+        for(let j = 0; j < str.length; j++) {
+            if(x[i] == str[j]) {
+                
+            }
         }
-        i++;
-        j--;
     }
-    return 1;
 }
-console.log(palindrome('abcba'))
+console.log(findNumber('GeeksForGeeks'));
