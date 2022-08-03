@@ -7,7 +7,7 @@ function binarySearch(arr,num){
     if(arr.length == 0) return -1;
     let left = 0;
     let right = arr.length - 1;
-    let pivot = (arr[left] + arr[right]) / 2;
+    let pivot = Math.floor((left + right)  / 2);
     while(arr[pivot] !== num && left <= right){
         if(num < arr[pivot]){
             right = pivot - 1;
@@ -18,4 +18,4 @@ function binarySearch(arr,num){
     }
     return arr[pivot] == num ? pivot: -1;
 }
-console.log(binarySearch([1,2,3,4,5],4));
+console.log(binarySearch([-1,0,3,5,9,12],9));
