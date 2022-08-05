@@ -124,6 +124,6 @@ class DoublylinkedList {
     }
 }
 const list = new DoublylinkedList();
-list.push(10);
-list.push(20);
-list.pop();
+list.unshift(10);
+list.unshift(20);
+console.log(list)

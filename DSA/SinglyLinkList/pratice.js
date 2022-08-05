@@ -32,7 +32,7 @@ class SinglyLinkedList {
     }
 
     insertAtPosition(val,idx){
-        if(idx < 0 || idx > this.length) return undefined
+        if(idx < 0) return undefined
         if(idx == 0) return this.insertAtHead(val);
         let count = 1;
         let current = this.head;
