@@ -3,7 +3,6 @@ class Node {
         this.val = val;
         this.prev = null;
         this.next = null;
-        this.prev = null
     }
 }
 
@@ -76,11 +75,12 @@ class DoublylinkedList {
                 current = current.next;
                 count++;
             }
+            if(!current) return false;
             current.prev = null;
             prev.next = current.next;
             current.next = null;
-
         }
+        this.length--;
     }
 
     print() {
