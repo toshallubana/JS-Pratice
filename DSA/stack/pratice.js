@@ -4,12 +4,14 @@ class Stack {
 
     constructor(size) {
         this.stack = [];
+        this.totalSize = 5;
         this.size = -1;
     }
 
     push(value) {
-        if(value) {
+        if(this.size < this.totalSize && value) {
             this.size++;
+            console.log(this.size,value)
             this.stack[this.size] = value;
         }else{
             console.log("stack overflow");
@@ -48,6 +50,8 @@ stack.push(10);
 stack.push(20);
 stack.push(30);
 stack.push(40);
+stack.push(50);
+stack.push(60);
 stack.pop();
 console.log(stack.peek());
 console.log(stack.isEmpty());
