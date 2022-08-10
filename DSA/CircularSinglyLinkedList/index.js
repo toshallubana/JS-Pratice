@@ -63,12 +63,24 @@ class CircularSinglyLinkedList {
             } while(this.tail != current);
         }
     }
+
+    isCircularLinkedList() {
+        if(this.tail == null) return true;
+        let current = this.tail.next;
+        while(current != null && current != this.tail) {
+            current = current.next;
+        }
+
+        if(current == this.tail) return true;
+        return false;
+    }
 }
 
 let list = new CircularSinglyLinkedList();
 list.insertNode(10,10);
-// list.insertNode(10,12);
-// list.insertNode(12,11);
-list.deleteNode(10);
+list.insertNode(10,12);
+list.insertNode(12,11);
+// list.deleteNode(10);
 list.traverse();
+console.log(list.isCircularLinkedList());
 console.log(list)
