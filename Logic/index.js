@@ -86,13 +86,41 @@
 // Explanation: Fr is not present in the
 // string GeeksForGeeks as substring.
 
-const findNumber = (str,x) => {
-    for(let i = 0; i < x.length; i++) {
-        for(let j = 0; j < str.length; j++) {
-            if(x[i] == str[j]) {
+// const findNumber = (str,x) => {
+//     for(let i = 0; i < x.length; i++) {
+//         for(let j = 0; j < str.length; j++) {
+//             if(x[i] == str[j]) {
                 
+//             }
+//         }
+//     }
+// }
+// console.log(findNumber('GeeksForGeeks'));
+
+// check redundent
+
+function redundantBrackets(string) {
+    let stack = [];
+    for(let i = 0; i < string.length - 1; i++) {
+        let ch = string[i];
+
+        if(ch == '(' || ch == '*' || ch == '/' || ch == '+' || ch == '-') {
+            stack.push(ch);
+        }else {
+            if(ch == ')') {
+                let isRedundant = true;
+                while(stack[stack.length - 1] != '(') {
+                    let top = stack[stack.length - 1];
+                    if(top == '*' || top == '/' || top == '+' || top == '-') {
+                        isRedundant = false;
+                    }
+                    stack.pop();
+                }
+                if(isRedundant) return true;
+                stack.pop();
             }
         }
     }
+    return false;
 }
-console.log(findNumber('GeeksForGeeks'));
+console.log(redundantBrackets('(a + (b * c))'));
