@@ -4,6 +4,7 @@
 // Searching O(N)
 // Access O(N)
 
+// using linked list
 
 class Node {
     constructor(value){

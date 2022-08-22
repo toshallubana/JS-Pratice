@@ -41,3 +41,4 @@
 // document.querySelector('#inputhandler').addEventListener('input',(e) => {
 //   pieChart.style = `--percentage:${e.target.value}%`
 // });
+
