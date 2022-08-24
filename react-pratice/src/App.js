@@ -1,17 +1,34 @@
+import { useState } from 'react';
 import './App.css';
 // import NestedFolder from './Components/NestedFolder/NestedFolder';
 // import explorer from './Components/NestedFolder/data/NestedFolder';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './ComponentReactCart/Header/Header';
-import Home from './ComponentReactCart/Home/Home';
-import Cart from './ComponentReactCart/Cart/Cart';
+
+/* shopping app code */
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import Header from './ComponentReactCart/Header/Header';
+// import Home from './ComponentReactCart/Home/Home';
+// import Cart from './ComponentReactCart/Cart/Cart';
+/* shopping app code end */
+
+import UseInput from './CustomHooks/UseInput';
+import UseTimeHook from './CustomHooks/UseTimeHook';
 
 function App() {
+
+  // Approch:-1 for useInput
+  // const email = UseInput("");
+
+  // Approch:- 2 for useInput
+  // const [username, userInput] = UseInput({ type: "text" });
+
+  const [time] = UseTimeHook();
+
   return (
     <div className="App">
       {/* react-cart-app */}
-
-      <BrowserRouter>
+      
+      {/* shopping app code */}
+      {/* <BrowserRouter>
         <Header />
         <div>
           <Routes>
@@ -19,8 +36,19 @@ function App() {
             <Route path='/cart' exact element={<Cart />}/>
           </Routes>
         </div>
-      </BrowserRouter>
-      
+      </BrowserRouter> */}
+      {/* shopping app code end*/}
+
+      {/* Custom Hooks */}
+      <p>{time}</p>
+
+      {/* Approch:- 1 useInput */}
+      {/* <input placeholder='email' {...email} /> */}
+
+      {/* Approch:- 2 useInput */}
+      {/* {userInput} */}
+
+      {/* Custom Hooks end*/}
 
       {/* nested folder pratice */}
       {/* <NestedFolder explorer={explorer} /> */}
