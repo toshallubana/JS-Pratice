@@ -1,59 +1,58 @@
-// find left most children in binaryhead 2n+1
-// find right most children in binaryhead 2n+2
-
-// for finding the parent (n-1)/2
-
-class MaxBinarheap {
-    constructor(){
-       this.values = [41,39,33,18,27,12]; 
+class MaxBinaryHeap {
+    constructor() {
+        this.values = [41,39,33,18,27,12];
     }
-    insert(element){
+
+    insert(element) {
         this.values.push(element);
         this.bubbleUp();
     }
-    bubbleUp(){
+    bubbleUp() {
         let idx = this.values.length - 1;
         const element = this.values[idx];
-        while(idx > 0){
-            let parentIdx = Math.floor((idx - 1) / 2);
+        while(idx > 0) {
+            let parentIdx = Math.floor((idx - 1)/2);
             let parent = this.values[parentIdx];
-            if(element < parent) break;
+            if(element <= parent) break;
             this.values[parentIdx] = element;
             this.values[idx] = parent;
             idx = parentIdx;
         }
     }
-    extractMax(){
+    extractmax() {
         const max = this.values[0];
         const end = this.values.pop();
-        if(this.values.length > 0){
+        if(this.values.length > 0) {
             this.values[0] = end;
-            // trickle down
             this.sinkDown();
         }
-        return max;
+        return max;  
     }
-    sinkDown(){
+    sinkDown() {
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];
-        while(true){
+        while(true) {
             let leftChildIdx = 2 * idx + 1;
             let rightChildIdx = 2 * idx + 2;
             let leftChild, rightChild;
             let swap = null;
-            if(leftChildIdx < length){
+
+            if(leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
-                if(leftChild > element){
+                if(leftChild > element) {
                     swap = leftChildIdx;
                 }
             }
-            if(rightChildIdx < length){
-               rightChild = this.values[rightChildIdx]; 
-               if((swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)){
-                swap = rightChildIdx;
-               }
-            }           
+
+            if(rightChildIdx < length) {
+                rightChild = this.values[rightChildIdx];
+                if(
+                    (swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)
+                ) {
+                    swap = rightChildIdx;
+                }
+            }
             if(swap === null) break;
             this.values[idx] = this.values[swap];
             this.values[swap] = element;
@@ -61,9 +60,9 @@ class MaxBinarheap {
         }
     }
 }
-let heap = new MaxBinarheap();
+
+let heap = new MaxBinaryHeap();
 heap.insert(55);
-heap.extractMax(55);
-console.log(heap);
-// [41,39,33,18,27,12,55]; 
-//  0   1  2  3  4  5  6
+console.log(heap)
+console.log(heap.extractmax());
+console.log(heap)

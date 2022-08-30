@@ -1,13 +1,16 @@
 // debounce
 
-// function debounce(fn,limit){
-//   let timer;
-//   return function (...args){
-//     if(timer) clearTimeout(timer)
-//     timer = setTimeout(() => {
-//       fn(...args)
-//     },limit)
-//   }
+// function debounce(fn,limit) {
+//     console.log(fn,limit)
+//     let timer;
+//     return function() {
+//         let context = this;
+//         clearTimeout(timer);
+//         timer = setTimeout(() => {
+//             console.log(timer)
+//             fn.apply(context,arguments);
+//         },limit);
+//     }
 // }
 // console.log(debounce(fn,3000))
 

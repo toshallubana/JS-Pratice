@@ -6,7 +6,6 @@ const maxSum = (arr) => {
       curr = curr + arr[j];
       res = Math.max(res, curr);
     }
-    console.log("helo");
   }
   return res;
 };
