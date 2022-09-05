@@ -2,31 +2,32 @@ class Graph {
     constructor() {
         this.adjacencyList = {};
     }
+
     addVertex(vertex) {
-        if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+        if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = []
     }
     addEdge(v1,v2) {
         this.adjacencyList[v1].push(v2);
         this.adjacencyList[v2].push(v1);
     }
-    removeEdge(v1,v2) {
-        this.adjacencyList[v1] = this.adjacencyList[v1].filter(
-            v => v !== v2
+    removeEdge(v1, v2) {
+        this.adjacencyList[v1] = this.adjacencyList[v1].filter(neighbour => 
+            neighbour != v2
         )
-        this.adjacencyList[v2] = this.adjacencyList[v2].filter(
-            v => v !== v1
+        this.adjacencyList[v2] = this.adjacencyList[v2].filter(neighbour => 
+            neighbour != v1
         )
     }
     removeVertex(vertex) {
         while(this.adjacencyList[vertex].length) {
-            const adjacencyVertex = this.adjacencyList[vertex].pop();
-            this.removeEdge(vertex, adjacencyVertex);
+            let v = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex,v);
         }
         delete this.adjacencyList[vertex];
     }
-    depthFirstRecursive(start) {
-        const result = [];
-        const visited = {};
+    depthFirstSearchRecursive(start) {
+        let result = [];
+        let visited = {};
         const adjacencyList = this.adjacencyList;
 
         (function dfs(vertex) {
@@ -37,14 +38,14 @@ class Graph {
                 if(!visited[neighbour]) {
                     return dfs(neighbour);
                 }
-            });
+            }); 
         })(start);
         return result;
     }
-    depthFirstIterative(start) {
-        const stack = [start];
-        const result = [];
-        const visited = {};
+    depthFirstSearchIterative(start) {
+        let stack = [start];
+        let result = [];
+        let visited = {};
         let currentVertex;
         visited[start] = true;
         while(stack.length) {
@@ -55,10 +56,10 @@ class Graph {
                     visited[neighbour] = true;
                     stack.push(neighbour);
                 }
-            });
+            })
         }
         return result;
-    }
+    } 
     breadthFirst(start) {
         const queue = [start];
         const result = [];
@@ -76,17 +77,9 @@ class Graph {
             })
         }
         return result;
-    }
+    }  
 }
 const graph = new Graph();
-// graph.addVertex('canada');
-// graph.addVertex('india');
-// graph.addVertex('america');
-// graph.addEdge('india','canada');
-// graph.addEdge('india','america');
-// graph.removeEdge('india','america');
-// graph.removeVertex('india');
-// graph.adjacencyList['canada'].push("chandimandir");
 graph.addVertex("A");
 graph.addVertex("B");
 graph.addVertex("C");
@@ -100,15 +93,10 @@ graph.addEdge("C","E");
 graph.addEdge("D","E");
 graph.addEdge("D","F");
 graph.addEdge("E","F");
-console.log(graph.depthFirstRecursive("A"));
-// console.log(graph.depthFirstIterative("A"));
-// console.log(graph.breadthFirst("A"));
-console.log(graph);
 
-    //   A
-    // /    \
-    // B     C
-    // |     | 
-    // D --- E 
-    //  \   /
-    //    F
+// graph.removeEdge("A","B");
+// graph.removeVertex("F");
+console.log(graph.depthFirstSearchRecursive("A"));
+console.log(graph.depthFirstSearchIterative("A"));
+console.log(graph.breadthFirst("A"))
+console.log(graph);
