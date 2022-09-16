@@ -59,63 +59,144 @@
 
 // One more approch
 
-function MyPromise(executor){
-    let onResolve;
-    let onReject;
-    let isFulfilled = false;
-    let isRejected = false;
-    let isCalled = false;
-    let value;
-    let error;
+// function MyPromise(executor){
+//     let onResolve;
+//     let onReject;
+//     let isFulfilled = false;
+//     let isRejected = false;
+//     let isCalled = false;
+//     let value;
+//     let error;
 
-    function resovle(val){
+//     function resovle(val){
+//         isFulfilled = true;
+//         value = val;
+//         if(typeof onResolve == 'function' && !isCalled){
+//             onResolve(val);
+//             isCalled = true;
+//         }
+//     }
+
+//     function reject(err){
+//         isRejected = true;
+//         error = err;
+//         if(typeof onReject == 'function' && !isCalled){
+//             onReject(err);
+//             isCalled = true;
+//         }
+//     }
+
+//     this.then = function(thenhandler){
+//         onResolve = thenhandler;
+//         if(!isCalled && isFulfilled){
+//             onResolve(value);
+//             isCalled = true;
+//         }
+//         return this;
+//     }
+
+//     this.catch = function(catchHandler){
+//         onReject = catchHandler;
+//         if(!isCalled && isRejected){
+//             onReject(error);
+//             isCalled = true;
+//         }
+//         return this;
+//     }
+//     executor(resovle,reject)
+// }
+
+// const dowork = (res,rej) => {
+//     if(1==1) {
+//         setTimeout(() => {res(2)},1000);
+//     }
+//     else { 
+//         setTimeout(() => {rej(-1)},1000);
+//     }
+// }
+// let greetMsg = new MyPromise(dowork);
+// greetMsg.then(data => data)
+// .then(res => 2 * 2)
+// .then(val => console.log(val))
+// .catch(err => console.log(err));
+
+//////////////////////////////////////
+
+
+
+function promisePolyFill(executor) {
+    let onResolve, onReject, isFulfilled = false, isRejected = false, isCalled = false,value;
+
+    function resolve(val) {
         isFulfilled = true;
         value = val;
-        if(typeof onResolve == 'function' && !isCalled){
+
+        if(typeof onResolve === "function") {
             onResolve(val);
             isCalled = true;
         }
     }
 
-    function reject(err){
+    function reject(value) {
         isRejected = true;
-        error = err;
-        if(typeof onReject == 'function' && !isCalled){
-            onReject(err);
+        value = val;
+        if( typeof onReject === "function") {
+            onReject(value);
             isCalled = true;
         }
     }
 
-    this.then = function(thenhandler){
-        onResolve = thenhandler;
-        if(!isCalled && isFulfilled){
+    this.then = function(callback) {
+        onResolve = callback;
+
+        if(isFulfilled && !isCalled) {
+            isCalled = true;
             onResolve(value);
-            isCalled = true;
         }
         return this;
     }
 
-    this.catch = function(catchHandler){
-        onReject = catchHandler;
-        if(!isCalled && isRejected){
-            onReject(error);
+    this.catch = function (callback) {
+        onReject = callback;
+
+        if(isFulfilled && !isCalled) {
             isCalled = true;
+            onReject(value);
         }
         return this;
     }
-    executor(resovle,reject)
+
+    try {
+        executor(resolve, reject);
+    } catch(error) {
+        reject(error);
+    }
+    
 }
 
-const dowork = (res,rej) => {
-    if(1==1) {
-        setTimeout(() => {res(2)},1000);
-    }
-    else { 
-        setTimeout(() => {rej(-1)},1000);
-    }
+const examplePromise = new promisePolyFill((resolve,reject) => {
+    setTimeout(() => {
+        resolve(2);
+    }, 1000);
+});
+
+examplePromise.then((res) => {
+    console.log(res);
+}).catch((err) => console.log(err));
+
+// Promise resolve
+
+promisePolyFill.resolve = (val) => {
+    return new promisePolyFill(function executor(resolve, reject) {
+        resolve(val);
+    });
 }
-let greetMsg = new MyPromise(dowork);
-greetMsg.then(data => data)
-.then(res => 2 * 2)
-.then(val => console.log(val))
-.catch(err => console.log(err));
+
+promisePolyFill.reject = (val) => {
+    return new promisePolyFill(function executor(resolve, reject) {
+        reject(val);
+    });
+}
+
+
+

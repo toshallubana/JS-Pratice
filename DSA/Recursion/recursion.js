@@ -612,3 +612,63 @@
 // console.log(collectStrings(obj));
 
 
+// Fibonacci
+
+// iterative
+
+// const fibonacci = (num, array = [0,1]) => {
+//     while(num > 2) {
+//         const [nextToLast, Last] = array.slice(-2);
+//         array.push(nextToLast + Last);
+//         num -=1;
+//     }
+//     return array;
+// }
+// console.log(fibonacci(12));
+
+// recursion
+
+// const fibonacci = (num, array = [0,1]) => {
+//     if(num <=2 ) return array;
+//     const [nextToLast, Last] = array.slice(-2);
+//     return fibonacci(num - 1, [...array,nextToLast + Last]);
+// }
+// console.log(fibonacci(12));
+
+// find poistion
+
+// const fib = (pos) => pos < 2 ? pos : fib(pos - 1) + fib(pos - 2);
+// console.log(fib(8))
+
+// A Parser
+// a company directory
+
+const artistsByGenre = {
+    jazz: ['Miles Davis', 'John Coltrane'],
+    rock: {
+        classic: ['bob Seger', 'The Eagles'],
+        hair: ['Def', 'Leppard', 'Whitesnake', 'Poison'],
+        alt: {
+            classic: ['Pearl jam', 'The Killers'],
+            current: ['Joywave', 'Sir Sly']
+        }
+    },
+    unclassified: {
+        new: ['Campp', 'neil Young'],
+        classic: ['Seal', 'Morcheeba', 'Chris Stapleton']
+    }
+}
+
+const artistNames = (json,output) => {
+    Object.keys(json).forEach((val,key) => {
+        if(Array.isArray(json[val])) {
+            return json[val].forEach((sub) => output.push(sub));
+        }else{
+            artistNames(json[val],output);
+        }
+    });
+    return output;
+}
+console.log(artistNames(artistsByGenre,[]));
+
+
