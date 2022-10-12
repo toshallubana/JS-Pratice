@@ -104,3 +104,6 @@ const homeScoreC = pipe(
 
 console.log(homeScoreC(scoreobj));
 console.log(scoreobj)
+
+// Positive: pure function with clear dependiences
+// Negative: Non-unary function in your pipe / compose chain

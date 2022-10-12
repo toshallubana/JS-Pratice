@@ -144,6 +144,8 @@ const shallowPizzaClone = (fn) => {
     }
 }
 
+const shallowPizzaClone = fn => (obj,array) => fn({ ...obj }, array);
+
 let addToppings = (pizza, toppings) => {
     pizza.topping = [...pizza.topping, ...toppings];
     return pizza;

@@ -14,7 +14,7 @@ function curring(a) {
 const curry = (fn) => {
   return curried = (...args) => {
     if(fn.length !== args.length) {
-      return curried.bind(null, ...args);
+      return curried.bind(null, ...args); // bind create a new function each time
     }
     return fn(...args);
   }

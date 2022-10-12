@@ -6,14 +6,14 @@ import Food from './Food';
 const getRandomCoordinates = () => {
   let min = 1;
   let max = 98;
-  let x = Math.floor((Math.random()*(max-min+1)+min)/2)*2;
-  let y = Math.floor((Math.random()*(max-min+1)+min)/2)*2;
-  return [x,y];
+  let x = Math.floor((Math.random() * (max - min + 1) + min) / 2) * 2;
+  let y = Math.floor((Math.random() * (max - min + 1) + min) / 2) * 2;
+  return [x, y];
 }
 
 function App() {
 
-  const [snakeDots, setSnakeDots] = useState([[0,0],[2,0]]);
+  const [snakeDots, setSnakeDots] = useState([[0, 0], [2, 0]]);
   const [food, setFood] = useState(getRandomCoordinates());
   const [direction, setDirection] = useState('RIGHT');
   const [speed, setSpeed] = useState(200);
@@ -23,7 +23,7 @@ function App() {
     checkifOutBorders();
     checkIfCollapsed();
     checkIfEat();
-  },[snakeDots,direction]);
+  }, [snakeDots, direction]);
 
   useEffect(() => {
     let time = setInterval(moveSnake, speed);
@@ -37,7 +37,7 @@ function App() {
 
   const checkifOutBorders = () => {
     let head = snakeDots[snakeDots.length - 1];
-    if(head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
+    if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
       onGameover();
     }
   }
@@ -45,7 +45,7 @@ function App() {
   const checkIfEat = () => {
     let head = snakeDots[snakeDots.length - 1];
     let foodVal = food;
-    if(head[0] === foodVal[0] && head[1] === foodVal[1]) {
+    if (head[0] === foodVal[0] && head[1] === foodVal[1]) {
       setFood(getRandomCoordinates());
       enLargeSnake();
       increaseSpeed();
@@ -57,7 +57,7 @@ function App() {
     let head = snake[snake.length - 1];
     snake.pop();
     snake.forEach(dot => {
-      if(head[0] === dot[0] && head[1] === dot[1]) {
+      if (head[0] === dot[0] && head[1] === dot[1]) {
         onGameover();
       }
     })
@@ -70,16 +70,16 @@ function App() {
   }
 
   const increaseSpeed = () => {
-    if(speed > 10) {
+    if (speed > 10) {
       setSpeed(speed - 10);
     }
   }
 
   const onGameover = () => {
     alert(`Gameover, snake length is ${snakeDots.length}`);
-    setFood([6,8]);
+    setFood([6, 8]);
     setDirection('RIGHT');
-    setSnakeDots([[0,0],[0,2]]);
+    setSnakeDots([[0, 0], [0, 2]]);
     setSpeed(200);
   }
 
@@ -106,7 +106,7 @@ function App() {
     let dots = [...snakeDots];
     let head = dots[dots.length - 1];
     // console.log(dots);
-    switch(direction) {
+    switch (direction) {
       case 'RIGHT':
         head = [head[0] + 2, head[1]];
         break;
