@@ -35,7 +35,7 @@ function deepClone(obj){
 
 const deep = deepClone(obj);
 console.log(deep);
-// console.log(obj2.address.details == deep.address.details);
+console.log(obj2.actionConfig == deep.actionConfig);
 
 
 // Another approch
