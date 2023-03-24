@@ -83,3 +83,4 @@ App = MyReact.render(Counter);
 App.type('bar');
 App = MyReact.render(Counter);
 App.noop();
+
