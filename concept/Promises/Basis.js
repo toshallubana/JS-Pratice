@@ -25,19 +25,19 @@ Promise.all([promise1, promise2, promise3])
 .then( data => console.log(data))
 .catch( err => console.log(err))
 
-const promise1 = setTimeout(() => console.log('hello'),1000);
-const promise2 = Promise.reject(2);
-const promise3 = 1;
+// const promise1 = setTimeout(() => console.log('hello'),1000);
+// const promise2 = Promise.reject(2);
+// const promise3 = 1;
 
 // Promise all
-Promise.all([promise1, promise2, promise3])
-.then( data => console.log(data))
-.catch( err => console.log(err))
+// Promise.all([promise1, promise2, promise3])
+// .then( data => console.log(data))
+// .catch( err => console.log(err))
 
 // Promise allSettled
-Promise.allSettled([promise1, promise2, promise3])
-.then( data => console.log(data))
-.catch( err => console.log(err))
+// Promise.allSettled([promise1, promise2, promise3])
+// .then( data => console.log(data))
+// .catch( err => console.log(err))
 
 // output
 // 0: {status: 'fulfilled', value: 2}
@@ -45,6 +45,6 @@ Promise.allSettled([promise1, promise2, promise3])
 // 2: {status: 'fulfilled', value: 1}
 
 // Promise.race
-Promise.race([promise1, promise2, promise3])
-.then( data => console.log(data))
-.catch( err => console.log(err))
+// Promise.race([promise1, promise2, promise3])
+// .then( data => console.log(data))
+// .catch( err => console.log(err))

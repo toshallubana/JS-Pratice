@@ -17,4 +17,14 @@ Array.prototype.myReduce = function (callback, initialValue) {
   }
   return acc;
 };
-console.log(arr.myReduce((acc, val) => acc));
+console.log(arr.myReduce((acc, val) => acc + val));
+
+Array.prototype.myNewReduce = function(callback, initialValue = null) {
+  let acc = initialValue;
+  for(let i = 0; i < this.length; i++) {
+    acc = callback(acc, this[i], i, this)
+  }
+  return acc;
+}
+
+console.log(arr.myNewReduce((acc, val) => acc + val));
