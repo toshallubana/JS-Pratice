@@ -17,13 +17,13 @@ new Promise((res,rej) => {
 // Promise.all
 // It take array as a arguments with promises in it
 
-const promise1 = setTimeout(() => console.log('hello'),1000);
-const promise2 = Promise.resolve(2);
-const promise3 = 1
+// const promise1 = setTimeout(() => console.log('hello'),1000);
+// const promise2 = Promise.resolve(2);
+// const promise3 = 1
 
-Promise.all([promise1, promise2, promise3])
-.then( data => console.log(data))
-.catch( err => console.log(err))
+// Promise.all([promise1, promise2, promise3])
+// .then( data => console.log(data))
+// .catch( err => console.log(err))
 
 // const promise1 = setTimeout(() => console.log('hello'),1000);
 // const promise2 = Promise.reject(2);
