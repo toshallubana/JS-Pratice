@@ -123,4 +123,4 @@ function redundantBrackets(string) {
     }
     return false;
 }
-console.log(redundantBrackets('(a + (b * c))'));
+console.log(redundantBrackets('(a + (b * c))'))
