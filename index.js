@@ -228,21 +228,127 @@
 
 // total
 
-const cal = {
+// const cal = {
+//     total: 0,
+//     add: function(a) {
+//         this.total += a;
+//         return this;
+//     },
+//     multiply: function(b) {
+//         this.total *= b;
+//         return this;
+//     }, 
+//     subtract: function(c) {
+//         this.total -= c;
+//         return this;
+//     },
+// }
+
+// const result = cal.add(10).multiply(11).subtract(12).add(10);
+// console.log(result.total);
+
+// flatten of obj
+
+// const exampleObj = {
+//     name: "Toshal",
+//     address: {
+//         firstLine: "House number: xyz",
+//         secondLine: "upton park",
+//         pincode: "134107"
+//     }
+// }
+
+// const objFlatten = (exampleObj, dot='',output={}) => {
+//     for(let k in exampleObj) {
+//         let key = `${dot}${k}`;
+//         if(typeof exampleObj[k] === 'object') {
+//             objFlatten(exampleObj[k],`${key}.`,output)
+//         } else {
+//             output[key] = exampleObj[k];
+//         }
+//     }
+//     return output;
+// }
+// console.log(objFlatten(exampleObj));
+
+// const sampleArray = [
+//     [1,2],
+//     [3,4],
+//     [5,6],
+//     [7,8],
+//     [[[10,11]]]
+// ]
+
+// for multi level
+// const flattenArray = [];
+// const flatten = (sampleArray) => {
+//     for(let k of sampleArray) {
+//         if(Array.isArray(k)) {
+//             flatten(k);
+//         }else {
+//             flattenArray.push(k);
+//         }
+//     }
+//     return flattenArray;
+// }
+// console.log(flatten(sampleArray))
+
+//***** Promise */
+// Promise.all
+
+// const promise1 = console.log('1');
+// const promise2 = setTimeout(() => console.log('2'));
+// const promise3 = setTimeout(() => console.log('3'));
+// const promoise4 = new Promise((res) => res('4'));
+
+// const response = Promise.all([promise1, promise2, promise3, promoise4]);
+// const responseAllSettled = Promise.allSettled([promise1, promise2, promise3, promoise4]);
+// const responseRace = Promise.race([promise1, promise2, promise3, promoise4]);
+// console.log(responseRace);
+
+
+const memoize = (fn) => {
+    let cache = {};
+
+    return (...args) => {
+        if(args.toString() in cache) {
+            return cache[args.toString()];
+        }
+        const result = fn(...args);
+        cache[args.toString()] = result;
+        return result;
+    }
+}
+
+const addMany = (...args) => args.reduce((acc, val) => acc + val);
+
+const call = memoize(addMany);
+console.log(call(1,2,3,4))
+
+
+// 
+const obj = {
     total: 0,
+    setValue:function(val) {
+        this.total = val;
+        return this;
+    },
     add: function(a) {
         this.total += a;
         return this;
     },
-    multiply: function(b) {
-        this.total *= b;
-        return this;
-    }, 
-    subtract: function(c) {
-        this.total -= c;
+    subtract: function(b) {
+        this.total -= b;
         return this;
     },
+    multiply: function(c) {
+        this.total *= c;
+        return this;
+    }
 }
 
-const result = cal.add(10).multiply(11).subtract(12).add(10);
-console.log(result.total);
+
+console.log(obj.setValue(10).add(5).subtract(2).multiply(2));
+
+
+

@@ -70,3 +70,28 @@ const useWindowResize = () => {
     return { width, height }
 }
 
+// useAxiosFetch
+
+const useAxiosFetch = (params) => {
+    const [data, setData] = useState(undefined);
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(false);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.request(params);
+            setData(response.data);
+        } catch(err) {
+            setError(error)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    return { data, error, loading, fetchData};
+}
+

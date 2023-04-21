@@ -1,5 +1,5 @@
-console.log(curring(5)(4)(3)(2)());
 
+// Infinite Currying 
 function curring(a) {
   return function (b) {
     if (b) {
@@ -8,6 +8,9 @@ function curring(a) {
     return a;
   };
 }
+
+console.log(curring(5)(4)(3)(2)(1)());
+// Output:- 14
 
 // Requires a function with a fixed number of parameters
 
@@ -23,3 +26,4 @@ const curry = (fn) => {
 const total = (x,y,z) => x + y + z;
 const curriedTotal = curry(total);
 console.log(curriedTotal(10)(20)(30));
+// output:- 60

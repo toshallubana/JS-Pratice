@@ -139,4 +139,16 @@ function swap(a,i,j){
 
 console.log(Permutation('ABC',0,2));
 
+// memoization
+
+const memo = () => {
+    let obj = {};
+
+    if(obj[value]) {
+        return obj[value];
+    }else {
+        obj[value] = value
+    }
+}
+console.log(memo());
 
