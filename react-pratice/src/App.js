@@ -21,7 +21,19 @@ function App() {
   // Approch:- 2 for useInput
   // const [username, userInput] = UseInput({ type: "text" });
 
-  const [time] = UseTimeHook();
+  // const [time] = UseTimeHook();
+
+  const [count, setCount] = useState(0);
+  const handleClickOuter = () => {
+    setCount(0);
+  };
+  const ref = useOutSideClick(handleClickOuter);
+  const handleClick = () => {
+    setCount((state) => state + 1);
+  };
+  const handleClickHeader = (e) => {
+    e.stopPropagation();
+  };
 
   return (
     <div className="App">
@@ -40,7 +52,7 @@ function App() {
       {/* shopping app code end*/}
 
       {/* Custom Hooks */}
-      <p>{time}</p>
+      {/* <p>{time}</p> */}
 
       {/* Approch:- 1 useInput */}
       {/* <input placeholder='email' {...email} /> */}

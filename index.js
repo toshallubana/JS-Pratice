@@ -1,3 +1,5 @@
+
+
 // // pratice
 // let sample = [1,2,3,4];
 
@@ -307,48 +309,48 @@
 // console.log(responseRace);
 
 
-const memoize = (fn) => {
-    let cache = {};
+// const memoize = (fn) => {
+//     let cache = {};
 
-    return (...args) => {
-        if(args.toString() in cache) {
-            return cache[args.toString()];
-        }
-        const result = fn(...args);
-        cache[args.toString()] = result;
-        return result;
-    }
-}
+//     return (...args) => {
+//         if(args.toString() in cache) {
+//             return cache[args.toString()];
+//         }
+//         const result = fn(...args);
+//         cache[args.toString()] = result;
+//         return result;
+//     }
+// }
 
-const addMany = (...args) => args.reduce((acc, val) => acc + val);
+// const addMany = (...args) => args.reduce((acc, val) => acc + val);
 
-const call = memoize(addMany);
-console.log(call(1,2,3,4))
-
-
-// 
-const obj = {
-    total: 0,
-    setValue:function(val) {
-        this.total = val;
-        return this;
-    },
-    add: function(a) {
-        this.total += a;
-        return this;
-    },
-    subtract: function(b) {
-        this.total -= b;
-        return this;
-    },
-    multiply: function(c) {
-        this.total *= c;
-        return this;
-    }
-}
+// const call = memoize(addMany);
+// console.log(call(1,2,3,4))
 
 
-console.log(obj.setValue(10).add(5).subtract(2).multiply(2));
+// // 
+// const obj = {
+//     total: 0,
+//     setValue:function(val) {
+//         this.total = val;
+//         return this;
+//     },
+//     add: function(a) {
+//         this.total += a;
+//         return this;
+//     },
+//     subtract: function(b) {
+//         this.total -= b;
+//         return this;
+//     },
+//     multiply: function(c) {
+//         this.total *= c;
+//         return this;
+//     }
+// }
+
+
+// console.log(obj.setValue(10).add(5).subtract(2).multiply(2));
 
 
 
