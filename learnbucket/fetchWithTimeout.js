@@ -22,9 +22,6 @@ const fetchWithTimeout = (url, duration) => {
     })
 }
 
-
-
-
 fetchWithTimeout('https://jsonplaceholder.typicode.com/todos/1', 1000).then((resp) => {
     console.log(resp)
 }).catch((error) => {
