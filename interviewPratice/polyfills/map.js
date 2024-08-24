@@ -4,7 +4,7 @@ console.log(arr.map((val,i) => val * 2));
 Array.prototype.myMap = function(callback) {
     let arr = [];
     for(let i = 0; i < this.length; i++) {
-        arr.push(callback(this[i],i, this));
+        arr.push(callback(this[i], i, this));
     }
     return arr;
 }

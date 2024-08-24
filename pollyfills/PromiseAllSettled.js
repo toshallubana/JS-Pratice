@@ -1,3 +1,16 @@
+// const Promise1 = Promise.resolve(10);
+// const Promise2 = "11";
+// const Promise3 = new Promise((res, rej) =>
+//   setTimeout(() => {
+//     res(20);
+//   }, 1000)
+// );
+
+console.log(Promise3.then((val) => console.log(val)).catch(err => console.log(err)), 'Promise3');
+
+// Promise.allSettled([Promise1, Promise2, Promise3]).then((val) => console.log(val)).catch(err => console.log(err)); 
+
+
 const Promise1 = Promise.resolve(10);
 const Promise2 = "11";
 const Promise3 = new Promise((res, rej) =>
@@ -5,10 +18,6 @@ const Promise3 = new Promise((res, rej) =>
     res(20);
   }, 1000)
 );
-
-console.log(Promise3.then((val) => console.log(val)).catch(err => console.log(err)), 'Promise3');
-
-// Promise.allSettled([Promise1, Promise2, Promise3]).then((val) => console.log(val)).catch(err => console.log(err)); 
 
 Promise.Settled = function(array = []) {
     return new Promise((resolve, reject) => {

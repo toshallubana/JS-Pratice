@@ -354,3 +354,29 @@
 
 
 
+
+// 2014 befor
+// var a = 10;
+// console.log(a)
+
+
+// 2015
+// let, const
+// let b;
+// console.log(b)
+
+// const c = 10;
+// console.log(c)
+
+
+function abc() {
+
+    let a = 10;
+    console.log(a);
+
+}
+// console.log(a);
+abc()
+
+
+

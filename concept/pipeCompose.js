@@ -6,7 +6,7 @@
 
 // Here's how a "compose" function works:-
 
-// Strt with small unary (one parameter) function
+// Start with small unary (one parameter) function
 
 const add2 = x => x + 2;
 const subtract1 = x => x - 1;

@@ -1,4 +1,7 @@
-Promise.allPolyFill = (promises) => {
+const promise1 = Promise.resolve(3)
+const promise2 = Promise.reject(5);
+
+Promise.allPollyFill = (promises) => {
     return new Promise((resolve, reject) => {
         const result = [];
 
@@ -6,7 +9,7 @@ Promise.allPolyFill = (promises) => {
             resolve(result);
             return;
         }
-        const pending = promises.length;
+        let pending = promises.length;
 
         promises.forEach((promise,idx) => {
             Promise.resolve(promise).then((res) => {
@@ -14,8 +17,11 @@ Promise.allPolyFill = (promises) => {
                 pending--;
                 if(pending === 0) {
                     resolve(result);
+                    return
                 }
             }, reject);
         });
     });
 }
+
+Promise.allPolyFill([promise1, promise2]).then((res) => console.log(res)).catch((err) => console.log(err));

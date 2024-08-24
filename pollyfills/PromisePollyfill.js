@@ -68,7 +68,7 @@
 //     let value;
 //     let error;
 
-//     function resovle(val){
+//     function resolve(val){
 //         isFulfilled = true;
 //         value = val;
 //         if(typeof onResolve == 'function' && !isCalled){
@@ -103,7 +103,7 @@
 //         }
 //         return this;
 //     }
-//     executor(resovle,reject)
+//     executor(resolve,reject)
 // }
 
 // const dowork = (res,rej) => {

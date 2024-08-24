@@ -3,6 +3,7 @@ function caching(fn, context) {
   return function (...args) {
     var agrsCache = JSON.stringify(args);
     if (!result[agrsCache]) {
+      console.log('new')
       result[agrsCache] = fn.call(context || this, ...args);
     }
     console.log(result)
